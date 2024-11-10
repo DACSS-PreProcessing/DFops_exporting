@@ -1,0 +1,13 @@
+---
+title: "Data Exporting in R"
+format: html
+editor: visual
+---
+
+## Getting the Data
+
+
+```{r}
+1 + 1
+```
+
