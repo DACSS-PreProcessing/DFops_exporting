@@ -6,8 +6,49 @@ editor: visual
 
 ## Getting the Data
 
+The data comes from page [link](https://boston-pd-crime-hub-boston.hub.arcgis.com/pages/data). I have previously downloaded the file on crime incidences (offenses):
 
 ```{r}
-1 + 1
+LinkData="https://github.com/DACSS-PreProcessing/DFops_exporting/raw/refs/heads/main/originalData/Boston_Incidents.csv"
+
+boston=read.csv(LinkData)
 ```
 
+Check data types:
+
+```{r}
+str(boston)
+```
+
+```{r}
+# then
+# boston$Report.Date=strptime(boston$Report.Date, "%m/%d/%Y %I:%M:%S")
+boston$Report.Date=as.POSIXct(boston$Report.Date, format =  "%m/%d/%Y %I:%M:%S %p", tz = 'UTC') 
+boston$Quarter=as.ordered(boston$Quarter)
+# types
+str(boston)
+```
+
+```{r}
+saveRDS(boston,file = "from_r.rds")
+write.csv(boston,"from_r.csv")
+arrow::write_parquet(boston,sink = "from_r.parquet")
+arrow::write_feather(boston,sink = "from_r.feather")
+
+```
+
+```{r}
+rds_from_py=readRDS("from_py.rds")
+str(rds_from_py)
+```
+
+
+```{r}
+feather_from_py=arrow::read_feather(file = "from_py.feather")
+str(feather_from_py)
+```
+
+```{r}
+parquet_from_py=arrow::read_parquet(file = "from_py.parquet")
+str(parquet_from_py)
+```
