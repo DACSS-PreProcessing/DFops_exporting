@@ -52,3 +52,25 @@ str(feather_from_py)
 parquet_from_py=arrow::read_parquet(file = "from_py.parquet")
 str(parquet_from_py)
 ```
+```{r}
+featherLink='https://github.com/DACSS-PreProcessing/DFops_exporting/raw/refs/heads/main/from_py.feather'
+
+
+feather_from_py=arrow::read_feather(file = featherLink)
+str(feather_from_py)
+```
+```{r}
+featherLink_r='https://github.com/DACSS-PreProcessing/DFops_exporting/raw/refs/heads/main/from_r.feather'
+
+
+feather_from_r=arrow::read_feather(file = featherLink_r)
+str(feather_from_r)
+```
+
+```{r}
+parquetLink_py='https://github.com/DACSS-PreProcessing/DFops_exporting/raw/refs/heads/main/from_py.parquet'
+
+
+parquet_from_py=arrow::read_parquet(file = parquetLink_py)
+str(parquet_from_py)
+```
