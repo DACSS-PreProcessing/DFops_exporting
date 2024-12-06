@@ -42,7 +42,6 @@ rds_from_py=readRDS("from_py.rds")
 str(rds_from_py)
 ```
 
-
 ```{r}
 feather_from_py=arrow::read_feather(file = "from_py.feather")
 str(feather_from_py)
@@ -52,6 +51,7 @@ str(feather_from_py)
 parquet_from_py=arrow::read_parquet(file = "from_py.parquet")
 str(parquet_from_py)
 ```
+
 ```{r}
 featherLink='https://github.com/DACSS-PreProcessing/DFops_exporting/raw/refs/heads/main/from_py.feather'
 
@@ -59,6 +59,7 @@ featherLink='https://github.com/DACSS-PreProcessing/DFops_exporting/raw/refs/hea
 feather_from_py=arrow::read_feather(file = featherLink)
 str(feather_from_py)
 ```
+
 ```{r}
 featherLink_r='https://github.com/DACSS-PreProcessing/DFops_exporting/raw/refs/heads/main/from_r.feather'
 
